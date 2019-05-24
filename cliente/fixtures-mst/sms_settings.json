@@ -1,0 +1,29 @@
+[
+ {
+  "docstatus": 0, 
+  "doctype": "SMS Settings", 
+  "message_parameter": "message", 
+  "modified": "2018-08-07 22:15:33.967326", 
+  "name": "SMS Settings", 
+  "parameters": [
+   {
+    "header": 0, 
+    "parameter": "email", 
+    "value": "joel_vincent_m@live.com"
+   }, 
+   {
+    "header": 0, 
+    "parameter": "password", 
+    "value": "12345678"
+   }, 
+   {
+    "header": 0, 
+    "parameter": "device", 
+    "value": "98002"
+   }
+  ], 
+  "receiver_parameter": "number", 
+  "sms_gateway_url": "http://smsgateway.me/api/v3/messages/send", 
+  "use_post": 1
+ }
+]

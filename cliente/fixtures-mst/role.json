@@ -1,0 +1,35 @@
+[
+ {
+  "desk_access": 1,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Role",
+  "modified": "2018-07-27 20:22:02.753537",
+  "name": "Cajero",
+  "restrict_to_domain": null,
+  "role_name": "Cajero",
+  "two_factor_auth": 0
+ },
+ {
+  "desk_access": 1,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Role",
+  "modified": "2018-07-27 20:23:02.285832",
+  "name": "POS",
+  "restrict_to_domain": null,
+  "role_name": "POS",
+  "two_factor_auth": 0
+ },
+ {
+  "desk_access": 1,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Role",
+  "modified": "2018-07-27 20:23:02.762543",
+  "name": "Gerente",
+  "restrict_to_domain": null,
+  "role_name": "Gerente",
+  "two_factor_auth": 0
+ }
+]

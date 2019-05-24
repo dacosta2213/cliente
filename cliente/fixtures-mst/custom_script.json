@@ -1,0 +1,110 @@
+[
+ {
+  "docstatus": 0, 
+  "doctype": "Custom Script", 
+  "dt": "Payment Term", 
+  "modified": "2018-07-19 18:34:25.382586", 
+  "name": "Payment Term-Client", 
+  "script": "frappe.ui.form.on(\"Payment Entry\", {\n    onload: function(frm) {\n\t\tfrappe.call({\n\t\t\t\tmethod: \"frappe.client.get\",\n\t\t\t\targs: {\n\t\t\t\t\tdoctype: \"Configuracion CFDI\",\n\t\t\t\t\tfilters: {\n\t\t\t\t\t\"name\": \"Cliente\"\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\tcallback: function (data) {\n\t\t\t\t\tif (frm.doc.__unsaved)  {\n\t\t\t\t\t\tv = data.message;\n\t\t\t\t\t\tcur_frm.set_value(\"regimen_fiscal\", v.regimen_fiscal);\n\t\t\t\t\t\tcur_frm.set_value(\"lugar_expedicion\", v.lugar_expedicion);\n\t\t\t\t\t\tcur_frm.set_value(\"rfc_emisor\", v.rfc_emisor);\n\t\t\t\t\t\tcur_frm.set_value(\"url_timbrado\", v.url_timbrado);\n\t\t\t\t\t\tcur_frm.set_value(\"folder\", v.folder);\n\t\t\t\t\t\tcur_frm.set_value(\"user_id\", v.user_id);\n\t\t\t\t\t\tcur_frm.set_value(\"user_password\", v.user_password);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\t})\n\t\t},\n    refresh: function(frm) {\n      $(\".btn[data-fieldname=presentar_al_sat]\").addClass('btn-success');\n    },\n    presentar_al_sat: function(frm) {\n    if (frm.doc.__unsaved) {\n      alert(\"El documento no est\u00e1 guardado.\")\n    } else {\n    frappe.call({\n            method: \"cfdi.pagos.prueba_timbrado\",\n            args:{\n            docname: frm.doc.name\n          }\n            })\n    }\n    },\n   cancelar: function(frm) {\n      if (frm.doc.__unsaved) {\n        alert(\"El documento no esta guardado.\")\n      } else {\n      \n      frappe.call({\n              method: \"cfdi.pagos.prueba_cancelacion\",\n              args:{\n              docname: frm.doc.name\n            }\n              })\n      }\n    },\n    timbrar_cfdi_sin_servicio: function(frm) {\n          swal({\n           \t title: 'Timbrado de CFDI',\n            \ttype: 'info',\n           \t html:\n            \t  'Necesitas contratar timbres para timbrar esta factura',\n            \tshowCloseButton: true,  \n          })\n    }\t\n})\n", 
+  "script_type": "Client"
+ }, 
+ {
+  "docstatus": 0, 
+  "doctype": "Custom Script", 
+  "dt": "Employee", 
+  "modified": "2017-12-18 14:23:55.880032", 
+  "name": "Employee-Client", 
+  "script": "frappe.ui.form.on(\"Employee\", {\n    refresh: function(frm) {\n        frm.dashboard.wrapper.parent().addClass(\"hide\")\n            .parent().find(\".section-head\").addClass(\"collapsed\")\n            .find(\".octicon.collapse-indicator.octicon-chevron-up\")\n            .removeClass()\n            .addClass(\"octicon collapse-indicator octicon-chevron-down\") \n    }\n})", 
+  "script_type": "Client"
+ }, 
+ {
+  "docstatus": 0, 
+  "doctype": "Custom Script", 
+  "dt": "User", 
+  "modified": "2018-08-30 17:05:42.139259", 
+  "name": "User-Client", 
+  "script": "frappe.ui.form.on(\"User\", {\n    onload_post_render: function(frm) {\n\t\t$('.form-inner-toolbar').hide();\n$('#navbar-search').css({ \"display\":\"block\"});\n\t\t$('.btn-add').hide();\n$( \".h6:contains('Configuraci\u00f3n de Correo Electr\u00f3nico')\" ).parent().parent().hide();\n$( \".h6:contains('Mas informaci\u00f3n')\" ).parent().parent().hide();\n$( \".h6:contains('M\u00f3dulos de Acceso')\" ).parent().parent().hide();\n$( \".h6:contains('Bandeja de entrada de email')\" ).parent().parent().hide();\n$( \".h6:contains('Fondo de escritorio')\" ).parent().parent().hide();\n    },\n refresh: function(frm) {\n\t\t$('.btn-add').hide();\n$('.ayudachico').hide();\n  $('.ayudagrande').hide();\n\n // $('.page-actions').prepend('<button data-video-id=\"ErtUUCrz458\"  class=\"btn-xs js-modal-btn ayudagrande \"><i class=\"far fa-question-circle\"></i>  Ayuda</button>');\n//  $(\".js-modal-btn\").modalVideo();\n    }\n});", 
+  "script_type": "Client"
+ }, 
+ {
+  "docstatus": 0, 
+  "doctype": "Custom Script", 
+  "dt": "Item", 
+  "modified": "2018-08-03 13:48:26.075539", 
+  "name": "Item-Client", 
+  "script": "frappe.ui.form.on(\"Item\", {\n    onload_post_render: function(frm) {\n\t\t$( \".form-heatmap\" ).hide();\n$( \".form-links\" ).hide();\n    },\n refresh: function(frm) {\n  $('.ayudachico').hide();\n  $('.ayudagrande').hide();\n\n//  $('.page-actions').prepend('<button data-video-id=\"0Zd_CL9GsGs\"  class=\"btn-xs js-modal-btn ayudagrande \"><i class=\"far fa-question-circle\"></i>  Ayuda</button>');\n  //$(\".js-modal-btn\").modalVideo();\n    }\n});", 
+  "script_type": "Client"
+ }, 
+ {
+  "docstatus": 0, 
+  "doctype": "Custom Script", 
+  "dt": "Customize Form", 
+  "modified": "2017-12-15 18:47:11.915097", 
+  "name": "Customize Form-Client", 
+  "script": "frappe.ui.form.on(\"Customize Form\", {\n    onload_post_render: function(frm) {\n\t\n\n    },\n    refresh: function(frm) {\n$( \".static-area:contains('Section Break')\" ).css({ \"font-size\":14, \"font-weight\":\"bold\",\"color\":\"#57B322\"});\n$( \".static-area:contains('Column Break')\" ).css({ \"font-size\":14, \"font-weight\":\"bold\",\"color\":\"#5e64ff\"});\n$( \".static-area:contains('Table')\" ).css({ \"font-size\":14, \"font-weight\":\"bold\",\"color\":\"#ff5858\"});\n    \t   \n    }\t\n})\n\n\n\n\n", 
+  "script_type": "Client"
+ }, 
+ {
+  "docstatus": 0, 
+  "doctype": "Custom Script", 
+  "dt": "Sales Invoice", 
+  "modified": "2018-08-03 13:50:16.489957", 
+  "name": "Sales Invoice-Client", 
+  "script": "frappe.ui.form.on(\"Sales Invoice\", {\nvalidate: function(frm) {\ncur_frm.set_value(\"transaction_date\", cur_frm.doc.posting_date);\n},\n\nonload_post_render: function(frm) {\n    \t// LAYOUT \n\t\t$('.layout-side-section').hide();\n\t\t$('.form-dashboard').hide();\n\t\t$('.layout-main-section-wrapper').attr(\"class\", \"col-md-12\");\n\t\t$(\"[data-fieldname='title']\").parent().parent().attr(\"class\", \"form-column col-sm-3\");\n\t\t$(\"[data-fieldname='due_date']\").parent().parent().attr(\"class\", \"form-column col-sm-9\");\n$(\"[data-label='Obtener art\u00edculos de']\").hide();\n},\n    refresh: function(frm) {\n$('.ayudachico').hide();\n$('.ayudagrande').hide();\n\n//$(\"label:contains('Cliente')\").append('<button data-video-id=\"z5A17z1FHe8\"  class=\"js-modal-btn ayudachico\"><i class=\"far fa-question-circle\"></i></button>')\n\t\n//$('.page-actions').prepend('<button data-video-id=\"mx5qD8ZvuaY\"  class=\"btn-xs js-modal-btn ayudagrande \"><i class=\"far fa-question-circle\"></i>  Ayuda</button>');\n//$(\".js-modal-btn\").modalVideo();\n\n      $(\".btn[data-fieldname=timbrar_cfdi]\").addClass('btn-success');\ncur_frm.add_fetch(\"customer\",'email','email');\ncur_frm.add_fetch(\"customer\",'customer_details','detalles_del_cliente');\n      $('.form-dashboard').hide();\n              frm.dashboard.wrapper.parent().addClass(\"hide\")\n                  .parent().find(\".section-head\").addClass(\"collapsed\")\n                  .find(\".octicon.collapse-indicator.octicon-chevron-up\")\n                  .removeClass()\n                  .addClass(\"octicon collapse-indicator octicon-chevron-down\") \n    },\n    timbrar_cfdi: function(frm) {\n    if (frm.doc.__unsaved) {\n      alert(\"La factura no esta guardada.\")\n    } else {\n    console.log('el else');\n    frappe.call({\n            method: \"cfdi.cfdi.doctype.cfdi.cfdi.prueba_timbrado\",\n            args:{\n            docname: frm.doc.name\n          }\n            })\n    }\n    },\n    cancelar_cfdi: function(frm) {\n      if (frm.doc.__unsaved) {\n        alert(\"La factura no esta guardada.\")\n      } else {\n      \n      frappe.call({\n              method: \"cfdi.cfdi.doctype.cfdi.cfdi.prueba_cancelacion\",\n              args:{\n              docname: frm.doc.name\n            }\n              })\n      }\n    },\n    timbrar_cfdi_sin_servicio: function(frm) {\n          swal({\n           \t title: 'Timbrado de CFDI',\n            \ttype: 'info',\n           \t html:\n            \t  'Necesitas contratar timbres para timbrar esta factura',\n            \tshowCloseButton: true,  \n          })\n    }\t\n})", 
+  "script_type": "Client"
+ }, 
+ {
+  "docstatus": 0, 
+  "doctype": "Custom Script", 
+  "dt": "Customer", 
+  "modified": "2018-08-03 13:47:13.611002", 
+  "name": "Customer-Client", 
+  "script": "frappe.ui.form.on(\"Customer\", {\n   \n refresh: function(frm) {\n  $('.ayudachico').hide();\n  $('.ayudagrande').hide();\n\n//  $('.page-actions').prepend('<button data-video-id=\"ruTP8OpOb6A\"  class=\"btn-xs js-modal-btn ayudagrande \"><i class=\"far fa-question-circle\"></i>  Ayuda</button>');\n//  $(\".js-modal-btn\").modalVideo();\n    }\n});", 
+  "script_type": "Client"
+ }, 
+ {
+  "docstatus": 0, 
+  "doctype": "Custom Script", 
+  "dt": "Payment Entry", 
+  "modified": "2017-12-22 17:59:55.875263", 
+  "name": "Payment Entry-Client", 
+  "script": "frappe.ui.form.on(\"Payment Entry\", {\n    refresh: function(frm) {\n      $(\".btn[data-fieldname=presentar_al_sat]\").addClass('btn-success');\n    },\n    presentar_al_sat: function(frm) {\n    if (frm.doc.__unsaved) {\n      alert(\"El documento no est\u00e1 guardado.\")\n    } else {\n    frappe.call({\n            method: \"cfdi.cfdi.doctype.cfdi.cfdi.timbrado_pago\",\n            args:{\n            docname: frm.doc.name,\n\t    invoice: frm.doc.factura_fuente\n          }\n            })\n    }\n    },\n    timbrar_cfdi_sin_servicio: function(frm) {\n          swal({\n           \t title: 'Timbrado de CFDI',\n            \ttype: 'info',\n           \t html:\n            \t  'Necesitas contratar timbres para timbrar esta factura',\n            \tshowCloseButton: true,  \n          })\n    }\t\n})\n", 
+  "script_type": "Client"
+ }, 
+ {
+  "docstatus": 0, 
+  "doctype": "Custom Script", 
+  "dt": "POS Profile", 
+  "modified": "2018-08-03 13:49:49.718088", 
+  "name": "POS Profile-Client", 
+  "script": "frappe.ui.form.on(\"POS Profile\", {\n    refresh: function(frm) {\n  $('.ayudachico').hide();\n  $('.ayudagrande').hide();\n\n // $('.page-actions').prepend('<button data-video-id=\"HM4JwHx6SsU\"  class=\"btn-xs js-modal-btn ayudagrande \"><i class=\"far fa-question-circle\"></i>  Ayuda</button>');\n // $(\".js-modal-btn\").modalVideo();\n    }\n})", 
+  "script_type": "Client"
+ }, 
+ {
+  "docstatus": 0, 
+  "doctype": "Custom Script", 
+  "dt": "Material Request", 
+  "modified": "2018-08-03 13:49:26.739728", 
+  "name": "Material Request-Client", 
+  "script": "frappe.ui.form.on(\"Material Request\", {\n    refresh: function(frm) {\n  $('.ayudachico').hide();\n  $('.ayudagrande').hide();\n\n  //$('.page-actions').prepend('<button data-video-id=\"ck0Lj6D1Mg\"  class=\"btn-xs js-modal-btn ayudagrande \"><i class=\"far fa-question-circle\"></i>  Ayuda</button>');\n // $(\".js-modal-btn\").modalVideo();\n    }\n})", 
+  "script_type": "Client"
+ }, 
+ {
+  "docstatus": 0, 
+  "doctype": "Custom Script", 
+  "dt": "Provedor Identidad", 
+  "modified": "2018-12-17 17:32:22.949569", 
+  "name": "Provedor Identidad-Client", 
+  "script": "frappe.ui.form.on(\"Provedor Identidad\", {\n    refresh: function(frm) {\n$('.btn[data-fieldname=validar]').addClass('btn-success');\n},\nvalidar: function(frm) {\n\n       msgprint('Credenciales Validadas correctamente.');\n    }\n})", 
+  "script_type": "Client"
+ }, 
+ {
+  "docstatus": 0, 
+  "doctype": "Custom Script", 
+  "dt": "Certificados", 
+  "modified": "2018-12-17 17:32:01.612564", 
+  "name": "Certificados-Client", 
+  "script": "frappe.ui.form.on(\"Certificados\", {\n    refresh: function(frm) {\n$('.btn[data-fieldname=certificar]').addClass('btn-primary');\n},\ncertificar: function(frm) {\n\n       msgprint('Cerfificado <a href=\"https://sura.totall.mx/files/64E3D1C0-00E9-11E9-B23A-59AA8132606C.txt\">64E3D1C0-00E9-11E9-B23A-59AA8132606C </a> generado correctamente');\n    }\n})", 
+  "script_type": "Client"
+ }
+]

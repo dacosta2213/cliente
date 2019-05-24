@@ -1,0 +1,98 @@
+[
+ {
+  "docstatus": 0, 
+  "doctype": "UOM", 
+  "modified": "2018-07-27 20:00:49.735034", 
+  "must_be_whole_number": 1, 
+  "name": "Unidad(es)", 
+  "uom_name": "Unidad(es)"
+ }, 
+ {
+  "docstatus": 0, 
+  "doctype": "UOM", 
+  "modified": "2018-07-27 20:00:49.743992", 
+  "must_be_whole_number": 1, 
+  "name": "Caja", 
+  "uom_name": "Caja"
+ }, 
+ {
+  "docstatus": 0, 
+  "doctype": "UOM", 
+  "modified": "2018-07-27 20:00:49.749520", 
+  "must_be_whole_number": 0, 
+  "name": "Kilogramo", 
+  "uom_name": "Kilogramo"
+ }, 
+ {
+  "docstatus": 0, 
+  "doctype": "UOM", 
+  "modified": "2018-07-27 20:00:49.754243", 
+  "must_be_whole_number": 0, 
+  "name": "Metro", 
+  "uom_name": "Metro"
+ }, 
+ {
+  "docstatus": 0, 
+  "doctype": "UOM", 
+  "modified": "2018-07-27 20:00:49.758985", 
+  "must_be_whole_number": 0, 
+  "name": "Litro", 
+  "uom_name": "Litro"
+ }, 
+ {
+  "docstatus": 0, 
+  "doctype": "UOM", 
+  "modified": "2018-07-27 20:00:49.764034", 
+  "must_be_whole_number": 0, 
+  "name": "Gramo", 
+  "uom_name": "Gramo"
+ }, 
+ {
+  "docstatus": 0, 
+  "doctype": "UOM", 
+  "modified": "2018-07-27 20:00:49.768549", 
+  "must_be_whole_number": 1, 
+  "name": "Nos.", 
+  "uom_name": "Nos."
+ }, 
+ {
+  "docstatus": 0, 
+  "doctype": "UOM", 
+  "modified": "2018-07-27 20:00:49.773099", 
+  "must_be_whole_number": 1, 
+  "name": "Par", 
+  "uom_name": "Par"
+ }, 
+ {
+  "docstatus": 0, 
+  "doctype": "UOM", 
+  "modified": "2018-07-27 20:00:49.777615", 
+  "must_be_whole_number": 1, 
+  "name": "Establecer", 
+  "uom_name": "Establecer"
+ }, 
+ {
+  "docstatus": 0, 
+  "doctype": "UOM", 
+  "modified": "2018-07-27 20:00:49.782050", 
+  "must_be_whole_number": 0, 
+  "name": "Hora", 
+  "uom_name": "Hora"
+ }, 
+ {
+  "docstatus": 0, 
+  "doctype": "UOM", 
+  "modified": "2018-07-27 20:00:49.786494", 
+  "must_be_whole_number": 0, 
+  "name": "Minuto", 
+  "uom_name": "Minuto"
+ }, 
+ {
+  "docstatus": 0, 
+  "doctype": "UOM", 
+  "modified": "2018-09-07 11:28:47.603661", 
+  "must_be_whole_number": 0, 
+  "name": "SERVICIO", 
+  "uom_name": "SERVICIO"
+ }
+]

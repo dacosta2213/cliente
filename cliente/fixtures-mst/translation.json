@@ -1,0 +1,20 @@
+[
+ {
+  "docstatus": 0, 
+  "doctype": "Translation", 
+  "language": "es", 
+  "modified": "2018-08-10 12:18:18.801952", 
+  "name": "5c1af046f4", 
+  "source_name": "Lead is an Organization", 
+  "target_name": "Es una organizacion"
+ }, 
+ {
+  "docstatus": 0, 
+  "doctype": "Translation", 
+  "language": "es", 
+  "modified": "2018-08-22 20:59:06.985394", 
+  "name": "c2cf6fec87", 
+  "source_name": "Make", 
+  "target_name": "Generar"
+ }
+]
