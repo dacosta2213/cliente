@@ -7,6 +7,23 @@ frappe.ui.form.on('Certificado', {
 		$('.btn[data-fieldname=lecturas]').addClass('btn-primary');
 		$('.btn[data-fieldname=aprobar]').addClass('btn-primary');
 
+	 if (frm.doc.cert_status == "Certificado") {
+				cur_frm.add_custom_button('Crear Factura',
+						 function() {
+							 frappe.call({
+								 method: "cliente.cliente.doctype.certificado.certificado.factura",
+								 args: {
+									 name: frm.doc.name,
+								 },
+								 callback: function (data) {
+									 console.log(data.message)
+									 // frappe.show_alert({message:__("Marcada como Ganada"), indicator:'green'})
+								 }
+							 })
+						 }
+				 ).addClass('btn-success')
+		}
+
 		// if (frm.doc.cert_status == "Certificado") {
 		// 	$('.page-icon-group').hide()
 		// } else {

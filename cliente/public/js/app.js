@@ -130,6 +130,23 @@ frappe.templates["cliente"] = '<aside class="main-sidebar">'
  +'          </ul>'
  +'        </li>'
 
+ 	 +'        <li class="treeview">'
+ 	 +'          <a href="#">'
+ 	 +'            <i class="far fa-money-bill-alt"></i>'
+ 	 +'            <span>INGRESOS</span>'
+ 	 +'            <span class="pull-right-container">'
+ 	 +'              <i class="fa fa-angle-left pull-right"></i>'
+ 	 +'            </span>'
+ 	 +'          </a>'
+ 	 +'          <ul class="treeview-menu">'
+ 	 // +'            <li><a href="#List/Turno/List"><i class="fas fa-flag"></i>  Turnos</a></li>'
+ 	 +'            <li><a href="#List/Sales Invoice/List"><i class="fas fa-chart-bar"></i>  Historial de Venta</a></li>'
+ 	 +'            <li><a href="#query-report/Accounts%20Receivable"><i class="far fa-money-bill-alt"></i>  CXC</a></li>'
+ 	 +'            <li><a href="#List/Payment%20Entry/List"><i class="fas fa-plus-circle"></i>  Pagos</a></li>'
+ 	 +'            <li><a href="#sales-analytics"><i class="fas fa-birthday-cake"></i>  Analitico de Ventas</a></li>'
+ 	 +'          </ul>'
+ 	 +'        </li>'
+
  +'        <li class="treeview">'
  +'          <a href="#">'
  +'            <i class="fas fa-bolt"></i>'
@@ -145,7 +162,7 @@ frappe.templates["cliente"] = '<aside class="main-sidebar">'
  +'            <li><a href="#List/Configuracion CFDI/List"><i class="fa fa-cog"></i>  Configurar</a></li>'
  +'          </ul>'
  +'        </li>'
- 
+
 
  +'        <li class="treeview">'
  +'          <a href="http://Totall.mx">'
@@ -160,6 +177,8 @@ frappe.templates["cliente"] = '<aside class="main-sidebar">'
  +'    </section>'
  +'  </aside>'
  +'<div class="overlay"><div>' ;
+
+
 
 frappe.templates["xerp"] = '<aside class="main-sidebar">'
  +'	<section class="sidebar">'

@@ -25,6 +25,28 @@ class Certificado(Document):
 	pass
 
 @frappe.whitelist()
+def factura(name):
+	c = frappe.get_doc("Certificado", name)
+	factura = frappe.new_doc("Sales Invoice")
+	factura.customer = c.expedido
+	factura.is_pos = 0
+	factura.append('items', { 'item_code': 'Certificado'})
+	factura.insert()
+	frappe.db.set_value("Certificado", name , 'cert_status', "Facturado con " + factura.name)
+	frappe.msgprint('Factura  Agregada:  <a href="#Form/Sales%20Invoice/' + factura.name + '">  ' + factura.name + ' </a>' )
+
+    # doc = frappe.get_doc({
+	# 	"doctype": "Sales Invoice",
+	# 	"customer": self.expedido ,
+	# 	"lng": lng,
+	# 	"lat": lat
+	# 	})
+    # doc.insert(ignore_permissions=True)
+    # frappe.db.commit()
+
+
+
+@frappe.whitelist()
 def acuerdo(ciclo):
 	response = requests.request("GET", "https://ciai.totall.mx/api/method/ciai.api.acuerdo?ciclo=" + ciclo)
 	return response.text
